@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <TextView
+        android:textColor="#E91E1E"
+        android:gravity="center"
+        android:text="FORGOT FASSWORD"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+    </TextView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <EditText
+            android:hint="Nhập username"
+            android:id="@+id/edt_username"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+        </EditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <EditText
+            android:hint="Nhập SDT"
+            android:id="@+id/edt_phone"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+        </EditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_forgot"
+        android:layout_width="284dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_btn"
+        android:text="FORGOT"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        app:backgroundTint="@null"></Button>
+</LinearLayout>
