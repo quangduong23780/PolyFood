@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
     <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/drawerlayout"
         android:layout_width="match_parent"
@@ -21,27 +21,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp">
             </ViewFlipper>
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                style="@style/Widget.AppCompat.AutoCompleteTextView"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:text="Sản phẩm mới nhất"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
             <LinearLayout
-                android:background="#009688"
+
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <TextView
-                    android:textStyle="bold"
-                    android:textSize="20dp"
-                    android:text="Sản phẩm mới nhất"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                </TextView>
-                <androidx.recyclerview.widget.RecyclerView
 
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:id="@+id/recycle_trangchu"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                </androidx.recyclerview.widget.RecyclerView>
+                    android:layout_height="match_parent"
+                    >
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/recycle_trangchu"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    </androidx.recyclerview.widget.RecyclerView>
+                </RelativeLayout>
             </LinearLayout>
 
         </LinearLayout>

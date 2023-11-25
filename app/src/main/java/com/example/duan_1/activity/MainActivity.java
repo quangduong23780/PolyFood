@@ -1,12 +1,12 @@
-package com.example.duan_1;
+package com.example.duan_1.activity;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -23,6 +23,7 @@ import android.widget.ListView;
 import android.widget.ViewFlipper;
 
 import com.bumptech.glide.Glide;
+import com.example.duan_1.R;
 import com.example.duan_1.fragment.DoanhThuFragment;
 import com.example.duan_1.fragment.DoiPassFragment;
 import com.example.duan_1.fragment.QLHoaDonFragment;
@@ -57,9 +58,9 @@ public class MainActivity extends AppCompatActivity {
         listViewTrangChu = findViewById(R.id.listView);
         drawerLayout = findViewById(R.id.drawerLayout);
         frameLayout = findViewById(R.id.framelayout);
-        setSupportActionBar(toolbar);
         View headerLayout = navigationView.getHeaderView(0);
-
+        rePlaceFragment(new TrangChuFragment());
+        navigationView.getMenu().findItem(R.id.mTrangChu).setCheckable(true);
         //view flipper
         List<Integer> mangquangcao = new ArrayList<>();
         mangquangcao.add(R.drawable.zed);
@@ -85,9 +86,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeAsUpIndicator(R.drawable.baseline_menu_24);
+       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       toolbar.setNavigationIcon(R.drawable.baseline_menu_24);
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -95,21 +95,29 @@ public class MainActivity extends AppCompatActivity {
                 Fragment fragment = null;
                 if (item.getItemId() == R.id.mTrangChu) {
                     fragment = new TrangChuFragment();
-                } else if (item.getItemId() == R.id.mQLLoaiSP) {
+                }
+                if (item.getItemId() == R.id.mQLLoaiSP) {
                     fragment = new QLLoaiSanPhamFragment();
-                } else if (item.getItemId() == R.id.mQLSanPham) {
+                }
+                if (item.getItemId() == R.id.mQLSanPham) {
                     fragment = new QLSanPhamFragment();
-                } else if (item.getItemId() == R.id.mQLHoaDon) {
+                }
+                if (item.getItemId() == R.id.mQLHoaDon) {
                     fragment = new QLHoaDonFragment();
-                } else if (item.getItemId() == R.id.mQLKhachHang) {
+                }
+                if (item.getItemId() == R.id.mQLKhachHang) {
                     fragment = new QLKhachHang();
-                } else if (item.getItemId() == R.id.mDoanhThu) {
+                }
+                if (item.getItemId() == R.id.mDoanhThu) {
                     fragment = new DoanhThuFragment();
-                } else if (item.getItemId() == R.id.mTop) {
+                }
+                if (item.getItemId() == R.id.mTop) {
                     fragment = new TopFragment();
-                } else if (item.getItemId() == R.id.mDoiMatKhau) {
+                }
+                if (item.getItemId() == R.id.mDoiMatKhau) {
                     fragment = new DoiPassFragment();
-                } else if (item.getItemId() == R.id.mThoat) {
+                }
+                if (item.getItemId() == R.id.mThoat) {
                     Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
@@ -119,10 +127,6 @@ public class MainActivity extends AppCompatActivity {
                     fragmentManager.beginTransaction().replace(R.id.framelayout, fragment).commit();
                     toolbar.setTitle(item.getTitle());
                 }
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.framelayout, fragment)
-                        .commit();
 
                 drawerLayout.closeDrawer(GravityCompat.START);
                 toolbar.setTitle(item.getTitle());
@@ -143,7 +147,11 @@ public class MainActivity extends AppCompatActivity {
             menu.findItem(R.id.mQLLoaiSP).setVisible(false);
         }
     }
-
+   private void rePlaceFragment(Fragment fragment){
+       FragmentTransaction transaction =getSupportFragmentManager().beginTransaction();
+       transaction.replace(R.id.framelayout, fragment);
+       transaction.commit();
+   }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {

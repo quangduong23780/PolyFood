@@ -1,64 +1,50 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="200dp"
-    android:layout_height="200dp"
+    android:layout_width="170dp"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
-
+    android:background="#009688"
+    android:layout_margin="5dp"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tên"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        android:id="@+id/txtName"/>
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:src="@drawable/products"
+        android:id="@+id/imgproduct"
+        android:background="@color/white"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:gravity="center_vertical">
-
-        <!-- Ảnh sản phẩm -->
-
-        <LinearLayout
-            android:layout_width="0dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:text="Giá"
+            android:textColor="#FF00"
+            android:id="@+id/txtPrice"
+            android:layout_marginLeft="70dp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:layout_marginStart="16dp">
+            android:id="@+id/imgadd"
+            android:src="@drawable/baseline_add_24"
+            android:layout_marginLeft="50dp"
+            android:background="@color/white"/>
 
-            <!-- Tên sản phẩm -->
-            <TextView
-                android:id="@+id/txtName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textColor="@android:color/black"
-                android:textStyle="bold"/>
-
-
-            <!-- Giá sản phẩm -->
-
-            <ImageView
-                android:id="@+id/imgproduct"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/products" />
-     <LinearLayout
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         android:orientation="horizontal">
-         <TextView
-             android:id="@+id/txtPrice"
-             android:layout_width="130dp"
-             android:layout_height="wrap_content"
-             android:textSize="16sp"
-             android:textColor="@android:color/black"
-             android:textStyle="bold"/>
-
-         <ImageView
-             android:id="@+id/imgadd"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:src="@drawable/baseline_add_24">
-         </ImageView>
-     </LinearLayout>
-
-        </LinearLayout>
     </LinearLayout>
+
 
 </LinearLayout>

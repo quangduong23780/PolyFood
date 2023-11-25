@@ -1,4 +1,4 @@
-package com.example.duan_1;
+package com.example.duan_1.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.duan_1.R;
 
 public class ManHinhChaoActivity extends AppCompatActivity {
     ImageView imgwelcome;

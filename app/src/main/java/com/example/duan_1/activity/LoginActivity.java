@@ -1,4 +1,4 @@
-package com.example.duan_1;
+package com.example.duan_1.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.duan_1.R;
 import com.example.duan_1.dao.UserDao;
 
 public class LoginActivity extends AppCompatActivity {

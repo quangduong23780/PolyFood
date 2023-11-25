@@ -1,16 +1,18 @@
 package com.example.duan_1.modul;
 
-public class Product {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
+import java.io.Serializable;
+
+public class Product implements Serializable {
     private int idproduct;
     private String nameproduct;
-
     private String typeproduct;
-    private int quantity;
     private int priceproduct;
     private String imgproduct;
-
-    public Product() {
-    }
 
     public Product(int idproduct, String nameproduct, String typeproduct, int priceproduct, String imgproduct) {
         this.idproduct = idproduct;
@@ -20,26 +22,8 @@ public class Product {
         this.imgproduct = imgproduct;
     }
 
-    public Product(String nameproduct, String typeproduct, int priceproduct, String imgproduct) {
-        this.nameproduct = nameproduct;
-        this.typeproduct = typeproduct;
-        this.priceproduct = priceproduct;
-        this.imgproduct = imgproduct;
-    }
+    public Product() {
 
-    public Product(int idproduct, String nameproduct, String typeproduct, int quantity, int priceproduct, String imgproduct) {
-        this.idproduct = idproduct;
-        this.nameproduct = nameproduct;
-        this.typeproduct = typeproduct;
-        this.quantity = quantity;
-        this.priceproduct = priceproduct;
-        this.imgproduct = imgproduct;
-    }
-
-    public Product(String nameproduct, int priceproduct, String imgproduct) {
-        this.nameproduct = nameproduct;
-        this.priceproduct = priceproduct;
-        this.imgproduct = imgproduct;
     }
 
     public int getIdproduct() {

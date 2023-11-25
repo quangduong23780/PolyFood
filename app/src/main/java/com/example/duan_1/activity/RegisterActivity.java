@@ -1,4 +1,4 @@
-package com.example.duan_1;
+package com.example.duan_1.activity;
 
 import android.content.ContentValues;
 import android.content.Intent;
@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.duan_1.R;
 import com.example.duan_1.database.DbHelper;
 
 public class RegisterActivity extends AppCompatActivity {

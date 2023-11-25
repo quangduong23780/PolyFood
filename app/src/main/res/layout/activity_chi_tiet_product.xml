@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/linear_chitietproduct"
+    >
+
+    <ImageView
+        android:src="@drawable/products"
+        android:id="@+id/img_product"
+        android:layout_gravity="center"
+        android:layout_width="250dp"
+        android:layout_height="250dp"></ImageView>
+
+    <TextView
+        android:id="@+id/txt_nameproduct"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:textSize="25dp"
+        android:text="a"
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+    </TextView>
+    <TextView
+        android:id="@+id/txt_loaiproduct"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:textSize="25dp"
+        android:text="a"
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+    </TextView>
+
+    <Spinner
+        android:id="@+id/spn_soluong"
+        android:layout_width="212dp"
+        android:layout_height="wrap_content">
+    </Spinner>
+    <TextView
+        android:layout_marginTop="250dp"
+        android:gravity="center"
+        android:textColor="#E91E1E"
+        android:id="@+id/txt_price"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:textSize="25dp"
+        android:text="a"
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+    </TextView>
+
+    <Button
+        android:id="@+id/btn_giohang"
+        android:layout_width="191dp"
+        android:layout_height="73dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="Thêm vào giỏ hàng"></Button>
+
+</LinearLayout>

@@ -27,10 +27,10 @@ public class DbHelper extends SQLiteOpenHelper {
        sqLiteDatabase.execSQL(d_loai);
 
        String d_product = "INSERT INTO PRODUCT VALUES\n" +
-               "(1, 'Gà quay', 1, 1, 2000, ''),\n" +
-               "(2, 'Vịt quay', 1, 1, 1800, NULL),\n" +
-               "(3, 'Cam ép', 2, 500, 1600, NULL),\n" +
-               "(4, 'Trà đào', 2, 1, 600, '')";
+               "(1, 'Gà quay', 1, 1200, 20, ''),\n" +
+               "(2, 'Vịt quay', 1, 1400, 10, NULL),\n" +
+               "(3, 'Cam ép', 2, 500, 30, NULL),\n" +
+               "(4, 'Trà đào', 2, 600, 40, '')";
        sqLiteDatabase.execSQL(d_product);
     }
 

@@ -1,4 +1,4 @@
-package com.example.duan_1;
+package com.example.duan_1.activity;
 
 import android.app.Activity;
 import android.content.ContentValues;
@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.duan_1.R;
 import com.example.duan_1.database.DbHelper;
 
 public class ForgotActivity extends AppCompatActivity {
