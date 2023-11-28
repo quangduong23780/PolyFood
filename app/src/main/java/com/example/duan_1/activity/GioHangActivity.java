@@ -6,9 +6,11 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.duan_1.R;
 import com.example.duan_1.adapter.GioHangAdapter;
@@ -32,11 +34,54 @@ public class GioHangActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gio_hang);
-      Anhxa();
-      checkcData();
-      UpdateTongTien();
+        Anhxa();
+        checkcData();
+        UpdateTongTien();
+        ClickItemListView();
+        EventButton();
     }
+    private void EventButton() {
+        btnXacnhan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(TrangChuFragment.manggiohang.size()>0){
+                    Intent intent = new Intent(getApplicationContext(), ThongTinKHActivity.class);
+                    startActivity(intent);
+                }else {
+                    Toast.makeText(GioHangActivity.this, "gio hang chua co san pham nao", Toast.LENGTH_SHORT).show();
+                }
 
+            }
+        });
+        btnQuayve.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+    private void ClickItemListView() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                if (TrangChuFragment.manggiohang.size() ==0) {
+                    thongbao.setVisibility(View.VISIBLE);
+                }else {
+                    TrangChuFragment.manggiohang.remove(i);
+                    gioHangAdapter.notifyDataSetChanged();
+                    UpdateTongTien();
+                    if(TrangChuFragment.manggiohang.size()==0){
+                        thongbao.setVisibility(View.VISIBLE);
+                    }else {
+                        thongbao.setVisibility(View.INVISIBLE);
+                        gioHangAdapter.notifyDataSetChanged();
+                        UpdateTongTien();
+                    }
+                }
+            }
+        });
+    }
     private void checkcData() {
         if(TrangChuFragment.manggiohang.size()<1){
             thongbao.setVisibility(View.VISIBLE);
@@ -64,6 +109,14 @@ public class GioHangActivity extends AppCompatActivity {
 
         gioHangAdapter = new GioHangAdapter(GioHangActivity.this, TrangChuFragment.manggiohang);
         listView.setAdapter(gioHangAdapter);
+
+        btnXacnhan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(GioHangActivity.this,ThongTinKHActivity.class));
+            }
+        });
     }
+
 
 }

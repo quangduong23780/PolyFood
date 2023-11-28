@@ -2,6 +2,7 @@ package com.example.duan_1.activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -26,7 +27,7 @@ import com.bumptech.glide.Glide;
 import com.example.duan_1.R;
 import com.example.duan_1.fragment.DoanhThuFragment;
 import com.example.duan_1.fragment.DoiPassFragment;
-import com.example.duan_1.fragment.QLHoaDonFragment;
+import com.example.duan_1.fragment.QLDonHangFragment;
 import com.example.duan_1.fragment.QLKhachHang;
 import com.example.duan_1.fragment.QLLoaiSanPhamFragment;
 import com.example.duan_1.fragment.QLSanPhamFragment;
@@ -84,10 +85,18 @@ public class MainActivity extends AppCompatActivity {
         viewFlipper.setInAnimation(slideIn);
         viewFlipper.setOutAnimation(slideOut);
 
-
         setSupportActionBar(toolbar);
-       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-       toolbar.setNavigationIcon(R.drawable.baseline_menu_24);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationIcon(R.drawable.baseline_menu_24);
+
+        toolbar.setOverflowIcon(ContextCompat.getDrawable(this, R.drawable.baseline_shopping_cart_24));
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, GioHangActivity.class);
+                startActivity(intent);
+            }
+        });
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -103,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new QLSanPhamFragment();
                 }
                 if (item.getItemId() == R.id.mQLHoaDon) {
-                    fragment = new QLHoaDonFragment();
+                    fragment = new QLDonHangFragment();
                 }
                 if (item.getItemId() == R.id.mQLKhachHang) {
                     fragment = new QLKhachHang();
@@ -121,8 +130,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
-                }
-                if (fragment != null) {
+                }  if (fragment != null) {
                     FragmentManager fragmentManager = getSupportFragmentManager();
                     fragmentManager.beginTransaction().replace(R.id.framelayout, fragment).commit();
                     toolbar.setTitle(item.getTitle());
@@ -138,26 +146,26 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("THONGTIN",MODE_PRIVATE);
         String role = sharedPreferences.getString("role","");
         if (!role.equals("admin")){
-           Menu menu = navigationView.getMenu();
-           menu.findItem(R.id.mDoanhThu).setVisible(false);
-           menu.findItem(R.id.mTop).setVisible(false);
+            Menu menu = navigationView.getMenu();
+            menu.findItem(R.id.mDoanhThu).setVisible(false);
+            menu.findItem(R.id.mTop).setVisible(false);
             menu.findItem(R.id.mQLKhachHang).setVisible(false);
             menu.findItem(R.id.mQLHoaDon).setVisible(false);
             menu.findItem(R.id.mQLSanPham).setVisible(false);
             menu.findItem(R.id.mQLLoaiSP).setVisible(false);
         }
     }
-   private void rePlaceFragment(Fragment fragment){
-       FragmentTransaction transaction =getSupportFragmentManager().beginTransaction();
-       transaction.replace(R.id.framelayout, fragment);
-       transaction.commit();
-   }
+    private void rePlaceFragment(Fragment fragment){
+        FragmentTransaction transaction =getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.framelayout, fragment);
+        transaction.commit();
+    }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             drawerLayout.openDrawer(GravityCompat.START);
         }
-            return true;
+        return true;
     }
 
     @Override

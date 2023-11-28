@@ -43,13 +43,13 @@ public class TrangChuFragment extends Fragment {
     public static ArrayList<GioHang> manggiohang;
     DrawerLayout drawerLayout;
     ViewFlipper viewFlipper;
-   public TrangChuFragment(){
+    public TrangChuFragment(){
 
-   }
+    }
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-       View view = inflater.inflate(R.layout.fragment_trangchu,container,false);
+        View view = inflater.inflate(R.layout.fragment_trangchu,container,false);
 
         Anhxa(view);
         trangChuDao = new TrangChuDao(getActivity());
@@ -89,14 +89,14 @@ public class TrangChuFragment extends Fragment {
 
 
 
-       return view;
+        return view;
     }
 
     private void Anhxa(View view) {
         recycler_product = view.findViewById(R.id.recycle_trangchu);
         drawerLayout= view.findViewById(R.id.drawerlayout);
         viewFlipper= view.findViewById(R.id.viewflipper);
-        if(manggiohang== null){
+        if(manggiohang == null){
             manggiohang = new ArrayList<>();
         }
     }

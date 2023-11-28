@@ -8,5 +8,4 @@ public class OderForm {
         private String address;
         private int total;
         private int status;
-
 }
