@@ -11,6 +11,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
+
         String chitietdonhang = "CREATE TABLE CHITIETDONHANG(id integer, masp integer , giasp integer, soluong integer)";
         sqLiteDatabase.execSQL(chitietdonhang);
         String donhang = "CREATE TABLE DONHANG(id integer primary key, tenkhachhang text,sodienthoai integer, email text,diachi text)";
@@ -37,14 +38,19 @@ public class DbHelper extends SQLiteOpenHelper {
                 "(4, 'Trà đào', 2, 600, 40, '')";
         sqLiteDatabase.execSQL(d_product);
         String insert_donhang = "insert into DONHANG values(1,'huy', 12312, 'huycodon@gmail.com', 'ha noi')";
-        sqLiteDatabase
-                .execSQL(insert_donhang);
+        sqLiteDatabase.execSQL(insert_donhang);
+        String d_chitietdonhang ="INSERT INTO CHITIETDONHANG VALUES(1,1,2400,2)";
+        sqLiteDatabase.execSQL(d_chitietdonhang);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         if (i != i1){
             sqLiteDatabase.execSQL("DROP TABLE IF EXISTS USER");
+            sqLiteDatabase.execSQL("DROP TABLE IF EXISTS DONHANG");
+            sqLiteDatabase.execSQL("DROP TABLE IF EXISTS LOAISP");
+            sqLiteDatabase.execSQL("DROP TABLE IF EXISTS PRODUCT");
+            sqLiteDatabase.execSQL("DROP TABLE IF EXISTS CHITIETDONHANG");
             onCreate(sqLiteDatabase);
         }
     }

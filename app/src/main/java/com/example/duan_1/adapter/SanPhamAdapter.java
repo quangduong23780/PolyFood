@@ -105,10 +105,10 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ViewHold
         EditText edtPrice = view.findViewById(R.id.edtPrice);
         EditText edtImage = view.findViewById(R.id.edtImage);
 
-        txtMasp.setText("Mã SP: " + product.getIdproduct());
-        edtTensp.setText("Tên SP: "+product.getNameproduct());
-        edtPrice.setText("Gía SP: "+product.getPriceproduct());
-        edtImage.setText("Link ảnh: "+product.getImgproduct());
+        txtMasp.setText( product.getIdproduct());
+        edtTensp.setText(product.getNameproduct());
+        edtPrice.setText(product.getPriceproduct());
+        edtImage.setText(product.getImgproduct());
 
         builder.setNegativeButton("Cập nhật", new DialogInterface.OnClickListener() {
             @Override

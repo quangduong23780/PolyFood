@@ -3,41 +3,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:padding="16dp">
 
     <TextView
         android:textStyle="bold"
         android:textColor="#E91E1E"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:text="THÊM SẢN PHẨM MỚI"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp">
     </TextView>
 
     <EditText
         android:id="@+id/edtTensp"
         android:hint="Nhập tên sản phẩm"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp">
     </EditText>
 
     <EditText
         android:id="@+id/edtGiasp"
         android:hint="Nhập giá tiền"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp">
     </EditText>
+
     <EditText
         android:id="@+id/edtLoaisp"
         android:hint="Nhập loại sản phẩm"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp">
     </EditText>
+
     <EditText
         android:id="@+id/edtimage"
         android:hint="Nhập link ảnh"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp">
     </EditText>
 
 </LinearLayout>

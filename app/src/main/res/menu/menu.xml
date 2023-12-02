@@ -4,27 +4,27 @@
     <item
         android:id="@+id/mTrangChu"
         android:title="Trang chủ"
-        android:icon="@drawable/baseline_mail_24">
+        android:icon="@drawable/home">
     </item>
     <item
         android:id="@+id/mQLLoaiSP"
         android:title="Quản lý loại sản phẩm"
-        android:icon="@drawable/baseline_mail_24">
+        android:icon="@drawable/products">
     </item>
     <item
         android:id="@+id/mQLSanPham"
         android:title="Quản lý sản phẩm"
-        android:icon="@drawable/baseline_mail_24">
+        android:icon="@drawable/product">
     </item>
     <item
         android:id="@+id/mQLHoaDon"
         android:title="Quản lý hoá đơn"
-        android:icon="@drawable/baseline_mail_24">
+        android:icon="@drawable/hoadon">
     </item>
     <item
         android:id="@+id/mQLKhachHang"
         android:title="Quản lý khách hàng"
-        android:icon="@drawable/baseline_mail_24">
+        android:icon="@drawable/client">
     </item>
     <item
         android:title="Thống kê">
@@ -32,12 +32,12 @@
             <item
                 android:id="@+id/mTop"
                 android:title="Top 10 sản phẩm bán chạy nhất"
-                android:icon="@drawable/baseline_mail_24">
+                android:icon="@drawable/top">
             </item>
             <item
                 android:id="@+id/mDoanhThu"
                 android:title="Doanh thu"
-                android:icon="@drawable/baseline_mail_24">
+                android:icon="@drawable/doanhthu">
             </item>
         </menu>
     </item>
@@ -48,12 +48,12 @@
             <item
                 android:id="@+id/mDoiMatKhau"
                 android:title="Đổi mật khẩu"
-                android:icon="@drawable/baseline_mail_24">
+                android:icon="@drawable/password">
             </item>
             <item
                 android:id="@+id/mThoat"
                 android:title="Đăng xuất"
-                android:icon="@drawable/baseline_mail_24">
+                android:icon="@drawable/logout">
             </item>
         </menu>
     </item>

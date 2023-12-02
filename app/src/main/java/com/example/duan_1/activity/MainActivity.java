@@ -28,6 +28,7 @@ import com.example.duan_1.R;
 import com.example.duan_1.fragment.DoanhThuFragment;
 import com.example.duan_1.fragment.DoiPassFragment;
 import com.example.duan_1.fragment.QLDonHangFragment;
+import com.example.duan_1.fragment.QLHoaDonFragment;
 import com.example.duan_1.fragment.QLKhachHang;
 import com.example.duan_1.fragment.QLLoaiSanPhamFragment;
 import com.example.duan_1.fragment.QLSanPhamFragment;
@@ -89,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationIcon(R.drawable.baseline_menu_24);
 
-        toolbar.setOverflowIcon(ContextCompat.getDrawable(this, R.drawable.baseline_shopping_cart_24));
+        toolbar.setOverflowIcon(ContextCompat.getDrawable(this, R.drawable.cart));
         toolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -112,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new QLSanPhamFragment();
                 }
                 if (item.getItemId() == R.id.mQLHoaDon) {
-                    fragment = new QLDonHangFragment();
+                    fragment = new QLHoaDonFragment();
                 }
                 if (item.getItemId() == R.id.mQLKhachHang) {
                     fragment = new QLKhachHang();

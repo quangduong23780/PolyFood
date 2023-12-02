@@ -21,7 +21,7 @@
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:textStyle="bold"
-                android:background="#03A9F4"
+                android:background="#FFF3DA"
                 android:title="Trang chủ"
                 android:layout_width="match_parent"
                 android:layout_height="50dp">

@@ -3,45 +3,53 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_gravity="center"
-    android:layout_margin="10dp">
+    android:gravity="center"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp"
+    android:background="@android:color/white">
 
     <TextView
-        android:textAlignment="center"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:textColor="#E91E1E"
-        android:text="CHỈNH SỬA THÔNG TIN THÀNH VIÊN"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </TextView>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
+        android:text="CHỈNH SỬA THÔNG TIN SẢN PHẨM"
+        android:textAlignment="center"
+        android:textColor="#E91E1E"
+        android:textSize="24sp"
+        android:textStyle="bold"></TextView>
 
     <TextView
         android:id="@+id/txtMasp"
         android:textStyle="bold"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
     </TextView>
 
     <EditText
         android:id="@+id/edtTensp"
-        android:hint="Nhập họ tên"
+        android:hint="Nhập tên sản phẩm"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
     </EditText>
 
     <EditText
         android:id="@+id/edtPrice"
-        android:hint="Nhập giá"
+        android:hint="Nhập giá sản phẩm"
+        android:inputType="numberDecimal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
     </EditText>
 
     <EditText
         android:id="@+id/edtImage"
-        android:hint="Nhập link image"
+        android:hint="Nhập link hình ảnh"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp">
     </EditText>
 </LinearLayout>

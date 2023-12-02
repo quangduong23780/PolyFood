@@ -28,6 +28,6 @@ public class ManHinhChaoActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        },6000);
+        },2000);
     }
 }

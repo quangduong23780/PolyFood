@@ -115,7 +115,7 @@ public class ChiTietProductActivity extends AppCompatActivity {
         txt_price.setText(String.valueOf(giasp));
     }
     private void Spiner() {
-        Integer[] soluong = new Integer[]{1,2,3,4,5,6,7,8,9,10};
+        Integer[] soluong = new Integer[]{1,2,3};
         ArrayAdapter<Integer> sl= new ArrayAdapter<>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, soluong);
         spn_soluong.setAdapter(sl);
     }

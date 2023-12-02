@@ -23,11 +23,11 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         setContentView(R.layout.activity_login);
-        btnlogin=findViewById(R.id.btnlogin);
-        edtusername=findViewById(R.id.edtusername);
-        edtpass=findViewById(R.id.edtpassword);
-        txtforgot=findViewById(R.id.txtforgot);
-        txtgingup=findViewById(R.id.txtgignup);
+        btnlogin=findViewById(R.id.btnLogin);
+        edtusername=findViewById(R.id.edtUsername);
+        edtpass=findViewById(R.id.edtPassword);
+        txtforgot=findViewById(R.id.txtForgot);
+        txtgingup=findViewById(R.id.txtSignUp);
         UserDao userDao = new UserDao(this);
 
         btnlogin.setOnClickListener(new View.OnClickListener() {

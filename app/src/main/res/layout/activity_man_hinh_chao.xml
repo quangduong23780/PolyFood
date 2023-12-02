@@ -8,14 +8,14 @@
 
     <ImageView
         android:id="@+id/imgwelcome"
-        android:layout_width="410dp"
-        android:layout_height="254dp"
-        android:layout_marginTop="216dp"
-        android:src="@drawable/fpt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/welcome"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"></ImageView>
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ImageView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
