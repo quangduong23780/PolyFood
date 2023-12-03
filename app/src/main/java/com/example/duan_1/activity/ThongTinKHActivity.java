@@ -60,8 +60,9 @@ public class ThongTinKHActivity extends AppCompatActivity {
                     if(dao.insert(donhang)>0){
                         for (int i=0;i<TrangChuFragment.manggiohang.size();i++) {
                             GioHang gioHang = TrangChuFragment.manggiohang.get(i);
-                            chitietDonhangDao.insert(donhang.getId(),gioHang);
+                            chitietDonhangDao.insert(donhang.getId(),gioHang, 0);
                             Toast.makeText(ThongTinKHActivity.this, "insert success", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(ThongTinKHActivity.this, MainActivity.class));
                         }
                         TrangChuFragment.manggiohang.clear();
                     }else {

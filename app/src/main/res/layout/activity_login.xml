@@ -50,6 +50,16 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <CheckBox
+        android:layout_marginLeft="20dp"
+        android:id="@+id/checkboxSavePassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:padding="8dp"
+        android:text="Lưu mật khẩu" />
+
+
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="284dp"

@@ -2,12 +2,15 @@ package com.example.duan_1.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOverlay;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.ViewFlipper;
@@ -32,6 +35,7 @@ import com.example.duan_1.dao.TrangChuDao;
 import com.example.duan_1.modul.GioHang;
 import com.example.duan_1.modul.Product;
 
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +47,8 @@ public class TrangChuFragment extends Fragment {
     public static ArrayList<GioHang> manggiohang;
     DrawerLayout drawerLayout;
     ViewFlipper viewFlipper;
+    EditText edtSearch;
+    ArrayList<Product> list1 = new ArrayList<>();
     public TrangChuFragment(){
 
     }
@@ -54,7 +60,37 @@ public class TrangChuFragment extends Fragment {
         Anhxa(view);
         trangChuDao = new TrangChuDao(getActivity());
         list = trangChuDao.getDSProductTrangChu();
+        list1 = trangChuDao.getDSProductTrangChu();
         adapter = new TrangChuAdapter(getContext(),list);
+
+        edtSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                list.clear();
+                String searchString = charSequence.toString().toLowerCase(); // Chuỗi tìm kiếm (chuyển về lowercase)
+                String normalizedSearchString = removeAccent(searchString); // Loại bỏ dấu trong chuỗi tìm kiếm
+
+                // Duyệt qua danh sách gốc và thêm sản phẩm phù hợp vào danh sách mới
+                for (Product product : list1) {
+                    String productName = product.getNameproduct().toLowerCase(); // Tên sản phẩm (chuyển về lowercase)
+                    String normalizedProductName = removeAccent(productName); // Loại bỏ dấu trong tên sản phẩm
+
+                    if (normalizedProductName.contains(normalizedSearchString)) {
+                        list.add(product);
+                    }
+                }
+
+                adapter.notifyDataSetChanged(); // Thông báo cho adapter biết dữ liệu đã thay đổi
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
         adapter.setOnclickRecycle(new InterfaceRecycle() {
             @Override
             public void setOnclick(int position) {
@@ -93,6 +129,7 @@ public class TrangChuFragment extends Fragment {
     }
 
     private void Anhxa(View view) {
+        edtSearch = view.findViewById(R.id.edtSearch);
         recycler_product = view.findViewById(R.id.recycle_trangchu);
         drawerLayout= view.findViewById(R.id.drawerlayout);
         viewFlipper= view.findViewById(R.id.viewflipper);
@@ -104,5 +141,10 @@ public class TrangChuFragment extends Fragment {
     private void loadData() {
         recycler_product.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         recycler_product.setAdapter(adapter);
+    }
+    public static String removeAccent(String str) {
+        String normalizedStr = Normalizer.normalize(str, Normalizer.Form.NFD);
+        normalizedStr = normalizedStr.replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+        return normalizedStr;
     }
 }

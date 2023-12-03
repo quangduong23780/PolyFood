@@ -1,7 +1,9 @@
 package com.example.duan_1.modul;
 
 public class User {
+
     private int mauser;
+    private String username;
     private String name;
     private String phone;
     private String pass;
@@ -11,8 +13,9 @@ public class User {
     public User() {
     }
 
-    public User(int mauser, String name, String phone, String pass, String address, int role) {
+    public User(int mauser, String username, String name, String phone, String pass, String address, int role) {
         this.mauser = mauser;
+        this.username = username;
         this.name = name;
         this.phone = phone;
         this.pass = pass;
@@ -28,6 +31,14 @@ public class User {
         this.mauser = mauser;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public String getName() {
         return name;
     }
@@ -36,20 +47,20 @@ public class User {
         this.name = name;
     }
 
-    public String getPass() {
-        return pass;
-    }
-
-    public void setPass(String pass) {
-        this.pass = pass;
-    }
-
     public String getPhone() {
         return phone;
     }
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
     public String getAddress() {

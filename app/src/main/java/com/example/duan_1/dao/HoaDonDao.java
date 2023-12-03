@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class HoaDonDao {
     DbHelper dbHelper;
     SQLiteDatabase sqLiteDatabase;
-  public HoaDonDao(Context context){dbHelper = new DbHelper(context);}
+    public HoaDonDao(Context context){dbHelper = new DbHelper(context);}
 
 
     public ArrayList<HoaDon> getDSHoaDon(){
@@ -26,7 +26,7 @@ public class HoaDonDao {
         if (cursor.getCount() !=0){
             cursor.moveToFirst();
             do {
-                list.add(new HoaDon(cursor.getInt(0),cursor.getInt(1),cursor.getInt(2),cursor.getInt(3)));
+                list.add(new HoaDon(cursor.getInt(0),cursor.getInt(1),cursor.getInt(2),cursor.getInt(3), cursor.getInt(4),cursor.getString(5)));
             }while (cursor.moveToNext());
         }
         return list;

@@ -81,19 +81,19 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ViewHold
     }
 
     public class ViewHolde extends RecyclerView.ViewHolder {
-         TextView txt_masp,txt_tensp,txt_loaisp,txt_giasp,txt_imgsp;
-         ImageView ivedit,ivdelete;
-         public ViewHolde(@NonNull View itemView) {
-             super(itemView);
-             txt_masp=itemView.findViewById(R.id.txt_masp);
-             txt_tensp=itemView.findViewById(R.id.txt_tensp);
-             txt_loaisp=itemView.findViewById(R.id.txt_loaisp);
-             txt_giasp=itemView.findViewById(R.id.txt_giasp);
-             txt_imgsp=itemView.findViewById(R.id.txt_imgsp);
-             ivdelete=itemView.findViewById(R.id.ivDel);
-             ivedit=itemView.findViewById(R.id.ivEdit);
-         }
-     }
+        TextView txt_masp,txt_tensp,txt_loaisp,txt_giasp,txt_imgsp;
+        ImageView ivedit,ivdelete;
+        public ViewHolde(@NonNull View itemView) {
+            super(itemView);
+            txt_masp=itemView.findViewById(R.id.txt_masp);
+            txt_tensp=itemView.findViewById(R.id.txt_tensp);
+            txt_loaisp=itemView.findViewById(R.id.txt_loaisp);
+            txt_giasp=itemView.findViewById(R.id.txt_giasp);
+            txt_imgsp=itemView.findViewById(R.id.txt_imgsp);
+            ivdelete=itemView.findViewById(R.id.ivDel);
+            ivedit=itemView.findViewById(R.id.ivEdit);
+        }
+    }
     private void showDialogUpdateProduct(Product product){
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         LayoutInflater inflater = ((Activity)context).getLayoutInflater();

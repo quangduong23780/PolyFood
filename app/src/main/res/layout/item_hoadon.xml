@@ -17,7 +17,12 @@
             android:orientation="vertical"
             android:layout_width="390dp"
             android:layout_height="match_parent">
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trạng thái"
+                android:id="@+id/txtTrangthai"
+                android:layout_gravity="end"/>
             <TextView
                 android:id="@+id/txtMakh"
                 android:layout_width="match_parent"
@@ -43,6 +48,12 @@
                 android:layout_height="wrap_content"
                 android:text="Số lượng">
             </TextView>
+            <TextView
+                android:id="@+id/txtNgay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ngày">
+            </TextView>
         </LinearLayout>
-        </LinearLayout>
+    </LinearLayout>
 </androidx.cardview.widget.CardView>

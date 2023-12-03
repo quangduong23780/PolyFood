@@ -6,17 +6,17 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DbHelper extends SQLiteOpenHelper {
     public DbHelper(Context context) {
-        super(context,"QUANLYCUAHANG",null,5);
+        super(context,"QUANLYCUAHANG",null,6);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-        String chitietdonhang = "CREATE TABLE CHITIETDONHANG(id integer, masp integer , giasp integer, soluong integer)";
+        String chitietdonhang = "CREATE TABLE CHITIETDONHANG(id integer, masp integer , giasp integer, soluong integer, trangthai integer,ngay text)";
         sqLiteDatabase.execSQL(chitietdonhang);
-        String donhang = "CREATE TABLE DONHANG(id integer primary key, tenkhachhang text,sodienthoai integer, email text,diachi text)";
+        String donhang = "CREATE TABLE DONHANG(id integer primary key, tenkhachhang text,sodienthoai integer, email text,diachi text,ngay TEXT)";
         sqLiteDatabase.execSQL(donhang);
-        String q_user="CREATE TABLE USER(mauser INTEGER PRIMARY KEY ,username TEXT,pass TEXT,hoten TEXT ,phone TEXT, address TEXT,role TEXT )";
+        String q_user="CREATE TABLE USER(mauser INTEGER PRIMARY KEY ,username TEXT,pass TEXT,hoten TEXT ,phone TEXT, address TEXT,role integer )";
         sqLiteDatabase.execSQL(q_user);
 
         String q_loai = "CREATE TABLE LOAISP(maloai INTEGER PRIMARY KEY  AUTOINCREMENT, tenloai TEXT)";
@@ -37,9 +37,9 @@ public class DbHelper extends SQLiteOpenHelper {
                 "(3, 'Cam ép', 2, 500, 30, NULL),\n" +
                 "(4, 'Trà đào', 2, 600, 40, '')";
         sqLiteDatabase.execSQL(d_product);
-        String insert_donhang = "insert into DONHANG values(1,'huy', 12312, 'huycodon@gmail.com', 'ha noi')";
+        String insert_donhang = "insert into DONHANG values(1,'huy', 12312, 'huycodon@gmail.com', 'ha noi','1/12/2023')";
         sqLiteDatabase.execSQL(insert_donhang);
-        String d_chitietdonhang ="INSERT INTO CHITIETDONHANG VALUES(1,1,2400,2)";
+        String d_chitietdonhang ="INSERT INTO CHITIETDONHANG VALUES(1,1,2400,2,0,'2/12/2023')";
         sqLiteDatabase.execSQL(d_chitietdonhang);
     }
 

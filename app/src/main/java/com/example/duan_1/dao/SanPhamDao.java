@@ -14,20 +14,25 @@ import java.util.ArrayList;
 public class SanPhamDao {
     DbHelper dbHelper;
     public SanPhamDao(Context context){
-         dbHelper = new DbHelper(context);
+        dbHelper = new DbHelper(context);
     }
-  public ArrayList<Product> getDSProduct(){
+    public  Product getID(String id){
+        String sql = "SELECT * FROM PRODUCT WHERE masp=?";
+        ArrayList<Product> list = getData(sql,id);
+        return list.get(0);
+    }
+    public ArrayList<Product> getDSProduct(){
         ArrayList<Product> list =new ArrayList<>();
-      SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
-      Cursor cursor =sqLiteDatabase.rawQuery("SELECT * FROM PRODUCT",null);
-      if (cursor.getCount() !=0){
-          cursor.moveToFirst();
-          do {
-           list.add(new Product(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getInt(3),cursor.getString(5)));
-          }while (cursor.moveToNext());
-      }
-      return list;
-  }
+        SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
+        Cursor cursor =sqLiteDatabase.rawQuery("SELECT * FROM PRODUCT",null);
+        if (cursor.getCount() !=0){
+            cursor.moveToFirst();
+            do {
+                list.add(new Product(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getInt(3),cursor.getString(5)));
+            }while (cursor.moveToNext());
+        }
+        return list;
+    }
     public  boolean themSanPham(String tenproduct,int loai,int price,String image){
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -65,5 +70,21 @@ public class SanPhamDao {
             return 0;
         }
         return 1;
+    }
+    public ArrayList<Product> getData(String sql, String...selectionArgs){
+        ArrayList<Product> list = new ArrayList<>();
+        SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery(sql,selectionArgs);
+        while (cursor.moveToNext()){
+            list.add(new Product(
+                            cursor.getInt(0),
+                            cursor.getString(1),
+                            cursor.getString(2),
+                            cursor.getInt(3),
+                            cursor.getString(4)
+                    )
+            );
+        }
+        return list;
     }
 }

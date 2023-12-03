@@ -10,7 +10,11 @@ import com.example.duan_1.database.DbHelper;
 import com.example.duan_1.modul.Donhang;
 import com.example.duan_1.modul.GioHang;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class ChitietDonhangDao {
     DbHelper dbHelper;
@@ -23,12 +27,13 @@ public class ChitietDonhangDao {
         String sql = "select * from CHITIETDONHANG";
         return getData(sql);
     }
-    public void insert(int id, GioHang gioHang){
+    public void insert(int id, GioHang gioHang, int trangthai){
         ContentValues values = new ContentValues();
         values.put("id", id);
         values.put("masp", gioHang.getId());
         values.put("giasp", gioHang.getPrirceproduct());
         values.put("soluong", gioHang.getSoluong());
+        values.put("trangthai", trangthai);
         db.insert("CHITIETDONHANG", null, values);
     }
     @SuppressLint("Range")

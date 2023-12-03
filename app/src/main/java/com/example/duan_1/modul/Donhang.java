@@ -6,6 +6,7 @@ public class Donhang {
     int sodienthoai;
     String email;
     String diachi;
+    String ngay;
 
     public Donhang(int id, String tenkhachhang, int sodienthoai, String email, String diachi) {
         this.id = id;
@@ -15,8 +16,25 @@ public class Donhang {
         this.diachi = diachi;
     }
 
+    public Donhang(int id, String tenkhachhang, int sodienthoai, String email, String diachi, String ngay) {
+        this.id = id;
+        this.tenkhachhang = tenkhachhang;
+        this.sodienthoai = sodienthoai;
+        this.email = email;
+        this.diachi = diachi;
+        this.ngay = ngay;
+    }
+
     public Donhang() {
 
+    }
+
+    public String getNgay() {
+        return ngay;
+    }
+
+    public void setNgay(String ngay) {
+        this.ngay = ngay;
     }
 
     public int getId() {

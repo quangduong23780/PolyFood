@@ -9,7 +9,11 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.duan_1.database.DbHelper;
 import com.example.duan_1.modul.Donhang;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class DonhangDao {
     DbHelper dbHelper;
@@ -18,6 +22,11 @@ public class DonhangDao {
     public DonhangDao(Context context){
         dbHelper = new DbHelper(context);
         db = dbHelper.getWritableDatabase();
+    }
+    public  Donhang getID(String id){
+        String sql = "SELECT * FROM DONHANG WHERE id=?";
+        ArrayList<Donhang> list = getData(sql,id);
+        return list.get(0);
     }
     public ArrayList<Donhang> getAll(){
         String sql="select * from DONHANG";
@@ -30,6 +39,10 @@ public class DonhangDao {
         values.put("sodienthoai", donhang.getSodienthoai());
         values.put("email", donhang.getEmail());
         values.put("diachi", donhang.getDiachi());
+        Date currentTime = Calendar.getInstance().getTime();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyy", Locale.getDefault());
+        String ngay = simpleDateFormat.format(currentTime);
+        values.put("ngay",ngay);
         return db.insert("DONHANG", null, values);
     }
     @SuppressLint("Range")
@@ -43,6 +56,7 @@ public class DonhangDao {
             donhang.setSodienthoai(Integer.parseInt(cursor.getString(cursor.getColumnIndex("sodienthoai"))));
             donhang.setEmail(cursor.getString(cursor.getColumnIndex("email")));
             donhang.setDiachi(cursor.getString(cursor.getColumnIndex("diachi")));
+            donhang.setNgay(cursor.getString(cursor.getColumnIndex("ngay")));
             list.add(donhang);
         }
         return list;

@@ -1,3 +1,4 @@
+
 package com.example.duan_1.modul;
 
 import android.os.Parcel;
@@ -13,6 +14,7 @@ public class Product implements Serializable {
     private String typeproduct;
     private int priceproduct;
     private String imgproduct;
+    private int soluongmua;
 
     public Product(int idproduct, String nameproduct, String typeproduct, int priceproduct, String imgproduct) {
         this.idproduct = idproduct;
@@ -22,8 +24,22 @@ public class Product implements Serializable {
         this.imgproduct = imgproduct;
     }
 
+    public Product(int idproduct, String nameproduct, int soluongmua) {
+        this.idproduct = idproduct;
+        this.nameproduct = nameproduct;
+        this.soluongmua = soluongmua;
+    }
+
     public Product() {
 
+    }
+
+    public int getSoluongmua() {
+        return soluongmua;
+    }
+
+    public void setSoluongmua(int soluongmua) {
+        this.soluongmua = soluongmua;
     }
 
     public int getIdproduct() {
