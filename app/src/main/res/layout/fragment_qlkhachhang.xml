@@ -3,19 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
     <TextView
         android:textSize="30dp"
         android:textStyle="bold"
         android:textColor="#E91E1E"
         android:gravity="center"
-        android:text="QUẢN LÝ LOẠI SẢN PHẨM"
+        android:text="QUẢN LÝ KHÁCH HÀNG"
         android:layout_width="match_parent"
         android:layout_height="40dp">
     </TextView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerLoaiSp"
+        android:id="@+id/recyclerQLKhachHang"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

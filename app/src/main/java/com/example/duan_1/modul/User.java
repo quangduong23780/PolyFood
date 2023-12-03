@@ -23,6 +23,13 @@ public class User {
         this.role = role;
     }
 
+    public User(int mauser, String name, String phone, String address) {
+        this.mauser = mauser;
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
+    }
+
     public int getMauser() {
         return mauser;
     }
