@@ -35,18 +35,23 @@ public class RegisterActivity extends AppCompatActivity {
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String username =  edt_username.getText().toString();
+                String username = edt_username.getText().toString();
                 String pass = edt_pass.getText().toString();
-               String name = edt_name.getText().toString();
-               String phone = edt_phone.getText().toString();
-               String address = edt_address.getText().toString();
-               boolean check =  Register(username,pass,name,phone,address);
-                    if (check){
-                        Toast.makeText(RegisterActivity.this, "Register thành công", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
-                    }else {
-                        Toast.makeText(RegisterActivity.this, "Register không thành công", Toast.LENGTH_SHORT).show();
+                String name = edt_name.getText().toString();
+                String phone = edt_phone.getText().toString();
+                String address = edt_address.getText().toString();
+
+                if (username.isEmpty() || pass.isEmpty() || name.isEmpty() || phone.isEmpty() || address.isEmpty()) {
+                    Toast.makeText(RegisterActivity.this, "Vui lòng nhập đầy đủ thông tin đăng ký", Toast.LENGTH_SHORT).show();
+                } else {
+                    boolean check = Register(username, pass, name, phone, address);
+                    if (check) {
+                        Toast.makeText(RegisterActivity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                    } else {
+                        Toast.makeText(RegisterActivity.this, "Tài khoản đã tồn tại", Toast.LENGTH_SHORT).show();
                     }
+                }
             }
         });
     }

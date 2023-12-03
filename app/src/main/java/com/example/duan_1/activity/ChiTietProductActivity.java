@@ -56,7 +56,7 @@ public class ChiTietProductActivity extends AppCompatActivity {
         btn_giohang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Tạo Intent và gửi dữ liệu
+
                 if(TrangChuFragment.manggiohang.size()>0){
                     int soluong = Integer.parseInt(spn_soluong.getSelectedItem().toString());
                     boolean exits = false;

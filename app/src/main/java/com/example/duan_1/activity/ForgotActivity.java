@@ -37,13 +37,17 @@ public class ForgotActivity extends AppCompatActivity {
         btn_forgot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String usernamae = edt_username.getText().toString();
+                String username = edt_username.getText().toString();
                 String phone = edt_phone.getText().toString();
 
-                if (DocDL(usernamae, phone)) {
-                    showDialog("Mời nhập mật khẩu mới","");
+                if (username.isEmpty() || phone.isEmpty()) {
+                    showDialog("Lỗi", "Vui lòng nhập đầy đủ thông tin");
                 } else {
-                    showDialog("Lỗi", "User hoặc sdt không đúng!");
+                    if (DocDL(username, phone)) {
+                        showDialog("Mời nhập mật khẩu mới", "");
+                    } else {
+                        showDialog("Lỗi", "Tên người dùng hoặc số điện thoại không đúng!");
+                    }
                 }
             }
         });

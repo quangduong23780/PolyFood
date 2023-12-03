@@ -102,9 +102,9 @@ public class TrangChuFragment extends Fragment {
         loadData();
 
         List<Integer> mangquangcao = new ArrayList<>();
-        mangquangcao.add(R.drawable.zed);
-        mangquangcao.add(R.drawable.zed2);
-        mangquangcao.add(R.drawable.zed3);
+        mangquangcao.add(R.drawable.banner01);
+        mangquangcao.add(R.drawable.banner02);
+        mangquangcao.add(R.drawable.banner03);
 
         for (int i = 0; i < mangquangcao.size(); i++) {
             ImageView imageView = new ImageView(getContext());

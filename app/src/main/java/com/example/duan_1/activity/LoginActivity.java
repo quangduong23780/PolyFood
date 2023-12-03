@@ -40,11 +40,16 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String username = edtusername.getText().toString();
                 String pass = edtpass.getText().toString();
-                if (userDao.checkLogin(username, pass)) {
-                    Toast.makeText(LoginActivity.this, "Login thành công", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                }else {
-                    Toast.makeText(LoginActivity.this, "Login thất bại,vui lòng điền lại pass hoặc số username", Toast.LENGTH_SHORT).show();
+
+                if (username.isEmpty() || pass.isEmpty()) {
+                    Toast.makeText(LoginActivity.this, "Vui lòng nhập đầy đủ thông tin đăng nhập", Toast.LENGTH_SHORT).show();
+                } else {
+                    if (userDao.checkLogin(username, pass)) {
+                        Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Đăng nhập thất bại, vui lòng kiểm tra lại tên người dùng và mật khẩu", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });

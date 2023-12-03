@@ -72,6 +72,11 @@ public class QLSanPhamFragment extends Fragment {
                 String giaspString = edtGiasp.getText().toString();
                 String image = edtimage.getText().toString();
 
+                if (tensp.isEmpty() || loaiString.isEmpty() || giaspString.isEmpty() || image.isEmpty()) {
+                    Toast.makeText(getContext(), "Vui lòng điền đủ thông tin sản phẩm", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
                 int loai = 0;
                 int giasp = 0;
 

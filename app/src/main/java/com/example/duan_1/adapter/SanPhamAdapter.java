@@ -94,10 +94,10 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ViewHold
             ivedit=itemView.findViewById(R.id.ivEdit);
         }
     }
-    private void showDialogUpdateProduct(Product product){
+    private void showDialogUpdateProduct(Product product) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        LayoutInflater inflater = ((Activity)context).getLayoutInflater();
-        View view = inflater.inflate(R.layout.dialog_editproduct,null);
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View view = inflater.inflate(R.layout.dialog_editproduct, null);
         builder.setView(view);
 
         TextView txtMasp = view.findViewById(R.id.txtMasp);
@@ -105,9 +105,9 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ViewHold
         EditText edtPrice = view.findViewById(R.id.edtPrice);
         EditText edtImage = view.findViewById(R.id.edtImage);
 
-        txtMasp.setText( product.getIdproduct());
+        txtMasp.setText(String.valueOf(product.getIdproduct()));
         edtTensp.setText(product.getNameproduct());
-        edtPrice.setText(product.getPriceproduct());
+        edtPrice.setText(String.valueOf(product.getPriceproduct()));
         edtImage.setText(product.getImgproduct());
 
         builder.setNegativeButton("Cập nhật", new DialogInterface.OnClickListener() {
@@ -119,9 +119,9 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ViewHold
                 int id = product.getIdproduct();
                 int pricesp = 0;
 
-                if (price.isEmpty()) {
-                    Toast.makeText(context, "Vui lòng nhập giá sản phẩm", Toast.LENGTH_LONG).show();
-                    return; // Kết thúc phương thức onClick nếu giá không được nhập
+                if (tensp.isEmpty() || price.isEmpty() || image.isEmpty()) {
+                    Toast.makeText(context, "Vui lòng điền đủ thông tin sản phẩm", Toast.LENGTH_LONG).show();
+                    return;
                 }
 
                 try {
@@ -134,10 +134,10 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ViewHold
 
                 boolean check = sanPhamDao.UpdateThongTinProduct(id, tensp, pricesp, image);
                 if (check) {
-                    Toast.makeText(context, "Update thông tin thành công", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Cập nhật thông tin thành công", Toast.LENGTH_LONG).show();
                     loadData();
                 } else {
-                    Toast.makeText(context, "Update thông tin không thành công", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "Cập nhật thông tin không thành công", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -150,7 +150,8 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ViewHold
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
-    private void loadData(){
+
+    private void loadData() {
         list.clear();
         list.addAll(sanPhamDao.getDSProduct());
         notifyDataSetChanged();

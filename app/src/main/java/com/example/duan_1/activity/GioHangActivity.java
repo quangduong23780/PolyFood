@@ -48,9 +48,8 @@ public class GioHangActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), ThongTinKHActivity.class);
                     startActivity(intent);
                 }else {
-                    Toast.makeText(GioHangActivity.this, "gio hang chua co san pham nao", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(GioHangActivity.this, "Giỏ hàng của bạn chưa có sản phẩm nào", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
         btnQuayve.setOnClickListener(new View.OnClickListener() {

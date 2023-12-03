@@ -45,28 +45,32 @@ public class ThongTinKHActivity extends AppCompatActivity {
         btnThanhtoan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final  String id = edID.getText().toString();
+                final String id = edID.getText().toString();
                 final String name = edName.getText().toString();
                 final String sdt = edSdt.getText().toString();
                 final String email = edEmail.getText().toString();
                 final String diachi = edDiachi.getText().toString();
-                if(name.length()>0 || sdt.length()>0|| email.length()>0|| diachi.length()>0){
+
+                if (name.isEmpty() || sdt.isEmpty() || email.isEmpty() || diachi.isEmpty()) {
+                    Toast.makeText(ThongTinKHActivity.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                } else {
                     donhang = new Donhang();
                     donhang.setId(Integer.parseInt(id));
                     donhang.setTenkhachhang(name);
                     donhang.setSodienthoai(Integer.parseInt(sdt));
                     donhang.setEmail(email);
                     donhang.setDiachi(diachi);
-                    if(dao.insert(donhang)>0){
-                        for (int i=0;i<TrangChuFragment.manggiohang.size();i++) {
+
+                    if (dao.insert(donhang) > 0) {
+                        for (int i = 0; i < TrangChuFragment.manggiohang.size(); i++) {
                             GioHang gioHang = TrangChuFragment.manggiohang.get(i);
-                            chitietDonhangDao.insert(donhang.getId(),gioHang, 0);
-                            Toast.makeText(ThongTinKHActivity.this, "insert success", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(ThongTinKHActivity.this, MainActivity.class));
+                            chitietDonhangDao.insert(donhang.getId(), gioHang, 0);
                         }
+                        Toast.makeText(ThongTinKHActivity.this, "Thanh toán thành công, đơn hàng của bạn sẽ sớm được gửi tới", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(ThongTinKHActivity.this, MainActivity.class));
                         TrangChuFragment.manggiohang.clear();
-                    }else {
-                        Toast.makeText(ThongTinKHActivity.this, "Thất bại", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(ThongTinKHActivity.this, "Thanh toán thất bại", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

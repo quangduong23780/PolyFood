@@ -76,9 +76,9 @@ public class MainActivity extends AppCompatActivity {
         navigationView.getMenu().findItem(R.id.mTrangChu).setCheckable(true);
         //view flipper
         List<Integer> mangquangcao = new ArrayList<>();
-        mangquangcao.add(R.drawable.zed);
-        mangquangcao.add(R.drawable.zed2);
-        mangquangcao.add(R.drawable.zed3);
+        mangquangcao.add(R.drawable.banner01);
+        mangquangcao.add(R.drawable.banner02);
+        mangquangcao.add(R.drawable.banner03);
 
         for (int i = 0; i < mangquangcao.size(); i++) {
             ImageView imageView = new ImageView(getApplicationContext());
@@ -211,13 +211,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i) {
                 String oldPass = edt_OldPass.getText().toString();
                 String newPass = edt_NewPass.getText().toString();
-                String reNewPass  = edt_ReNewPass.getText().toString();
-                if (newPass.equals(reNewPass)) {
+                String reNewPass = edt_ReNewPass.getText().toString();
+
+                if (oldPass.isEmpty() || newPass.isEmpty() || reNewPass.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                } else if (newPass.equals(reNewPass)) {
                     User user = new User();
                     user.setUsername(username);
                     user.setPass(newPass);
-                   UserDao dao = new UserDao(MainActivity.this);
-                    if (dao.update(user)>0) {
+                    UserDao dao = new UserDao(MainActivity.this);
+
+                    if (dao.update(user) > 0) {
                         Toast.makeText(MainActivity.this, "Cập nhật mật khẩu thành công", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
