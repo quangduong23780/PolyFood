@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.duan_1.R;
 import com.example.duan_1.dao.UserDao;
+import com.example.duan_1.fragment.TrangChuFragment;
 
 public class LoginActivity extends AppCompatActivity {
     Button btnlogin;
@@ -46,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     if (userDao.checkLogin(username, pass)) {
                         Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        startActivity(new Intent(LoginActivity.this, TrangChuFragment.class));
                     } else {
                         Toast.makeText(LoginActivity.this, "Đăng nhập thất bại, vui lòng kiểm tra lại tên người dùng và mật khẩu", Toast.LENGTH_SHORT).show();
                     }

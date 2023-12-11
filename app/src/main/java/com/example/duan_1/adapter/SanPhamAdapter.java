@@ -58,13 +58,7 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ViewHold
         holder.ivdelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int check = sanPhamDao.xoaProduct(list.get(holder.getAdapterPosition()).getIdproduct());
-                if (check ==1){
-                    Toast.makeText(context,"Xoá sản phẩm thành công",Toast.LENGTH_LONG).show();
-                    loadData();
-                }else {
-                    Toast.makeText(context,"Xoá sản phẩm thất bại",Toast. LENGTH_LONG).show();
-                }
+               ShowDiaLogDelete(position);
             }
         });
         holder.ivedit.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +67,34 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamAdapter.ViewHold
                 showDialogUpdateProduct(list.get(holder.getAdapterPosition()));
             }
         });
+    }
+    public void ShowDiaLogDelete(int position){
+        AlertDialog.Builder builder= new AlertDialog.Builder(context);
+        builder.setTitle("Xác nhận xoá");
+        builder.setMessage("Bạn có muốn xoá sản phẩm không?");
+
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Product product = list.get(position);
+                int delete = sanPhamDao.xoaProduct(product.getIdproduct());
+                if (delete == 1){
+                    Toast.makeText(context, "Xoá sản phẩm thành công", Toast.LENGTH_SHORT).show();
+                    list.remove(position);
+                    notifyDataSetChanged();
+                } else {
+                    Toast.makeText(context, "Xoá sản phẩm thất bại", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        AlertDialog alertDialog= builder.create();
+        alertDialog.show();
     }
 
     @Override

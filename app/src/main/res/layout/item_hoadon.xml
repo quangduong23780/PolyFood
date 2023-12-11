@@ -10,19 +10,26 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
+        <ImageView
+            android:layout_width="83dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/hoadon"></ImageView>
+
 
         <LinearLayout
-            android:background="#00BCD4"
             android:padding="10dp"
             android:orientation="vertical"
             android:layout_width="390dp"
             android:layout_height="match_parent">
+
             <TextView
+                android:paddingRight="100dp"
+                android:id="@+id/txtTrangthai"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Trạng thái"
-                android:id="@+id/txtTrangthai"
-                android:layout_gravity="end"/>
+                android:layout_gravity="end"
+                android:text="Trạng thái" />
+
             <TextView
                 android:id="@+id/txtMakh"
                 android:layout_width="match_parent"
@@ -54,6 +61,13 @@
                 android:layout_height="wrap_content"
                 android:text="Ngày">
             </TextView>
+
+            <ImageView
+                android:id="@+id/ivDelete"
+                android:layout_width="37dp"
+                android:layout_height="32dp"
+                android:src="@drawable/delete"></ImageView>
+
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

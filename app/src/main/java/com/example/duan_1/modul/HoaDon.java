@@ -7,6 +7,7 @@ public class HoaDon {
     int soluong;
     int trangthai;
     String ngay;
+    private long deliveryTime;
 
     public HoaDon() {
     }
@@ -27,6 +28,11 @@ public class HoaDon {
         this.trangthai = trangthai;
         this.ngay = ngay;
     }
+
+    public long getDeliveryTime() {
+        return deliveryTime;
+    }
+
 
     public String getNgay() {
         return ngay;

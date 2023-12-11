@@ -139,9 +139,7 @@ public class MainActivity extends AppCompatActivity {
                     showDialogDoiMatKhau();
                 }
                 if (item.getItemId() == R.id.mThoat) {
-                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
+                  ShowDiLogOut();
                 }  if (fragment != null) {
                     FragmentManager fragmentManager = getSupportFragmentManager();
                     fragmentManager.beginTransaction().replace(R.id.framelayout, fragment).commit();
@@ -235,6 +233,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+    public void  ShowDiLogOut(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Đăng  xuất");
+        builder.setMessage("Bạn có muốn đăng xuất không?");
+
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        AlertDialog alertDialog  = builder.create();
         alertDialog.show();
     }
 }

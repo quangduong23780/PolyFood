@@ -17,7 +17,9 @@ import com.example.duan_1.fragment.TrangChuFragment;
 import com.example.duan_1.modul.Donhang;
 import com.example.duan_1.modul.GioHang;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class ThongTinKHActivity extends AppCompatActivity {
     public EditText edName,edSdt, edEmail,edDiachi,edID;
@@ -26,6 +28,8 @@ public class ThongTinKHActivity extends AppCompatActivity {
     Donhang donhang;
     ArrayList<Donhang> arrayList;
     ChitietDonhangDao chitietDonhangDao;
+    Calendar c = Calendar.getInstance();
+    SimpleDateFormat spf = new SimpleDateFormat("dd/MM/yyyy");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,11 +64,12 @@ public class ThongTinKHActivity extends AppCompatActivity {
                     donhang.setSodienthoai(Integer.parseInt(sdt));
                     donhang.setEmail(email);
                     donhang.setDiachi(diachi);
+                    donhang.setNgay(spf.format(c.getTime()));
 
                     if (dao.insert(donhang) > 0) {
                         for (int i = 0; i < TrangChuFragment.manggiohang.size(); i++) {
                             GioHang gioHang = TrangChuFragment.manggiohang.get(i);
-                            chitietDonhangDao.insert(donhang.getId(), gioHang, 0);
+                            chitietDonhangDao.insert(donhang.getId(), gioHang,donhang.getNgay(), 0);
                         }
                         Toast.makeText(ThongTinKHActivity.this, "Thanh toán thành công, đơn hàng của bạn sẽ sớm được gửi tới", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(ThongTinKHActivity.this, MainActivity.class));

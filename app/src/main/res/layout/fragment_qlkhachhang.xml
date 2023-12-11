@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:background="#FFF3DE"
     >
     <TextView
         android:textSize="30dp"
@@ -14,6 +15,13 @@
         android:layout_width="match_parent"
         android:layout_height="40dp">
     </TextView>
+
+    <ImageView
+        android:id="@+id/imgLoad"
+        android:src="@drawable/load"
+        android:layout_gravity="center"
+        android:layout_width="40dp"
+        android:layout_height="40dp"></ImageView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerQLKhachHang"

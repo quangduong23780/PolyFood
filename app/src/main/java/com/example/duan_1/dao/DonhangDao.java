@@ -39,10 +39,7 @@ public class DonhangDao {
         values.put("sodienthoai", donhang.getSodienthoai());
         values.put("email", donhang.getEmail());
         values.put("diachi", donhang.getDiachi());
-        Date currentTime = Calendar.getInstance().getTime();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyy", Locale.getDefault());
-        String ngay = simpleDateFormat.format(currentTime);
-        values.put("ngay",ngay);
+        values.put("ngay",donhang.getNgay());
         return db.insert("DONHANG", null, values);
     }
     @SuppressLint("Range")

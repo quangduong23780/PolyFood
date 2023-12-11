@@ -11,10 +11,15 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
+        <ImageView
+            android:src="@drawable/loaisp"
+            android:layout_width="50dp"
+            android:layout_height="match_parent">
+        </ImageView>
+
         <LinearLayout
             android:layout_weight="9"
             android:padding="10dp"
-            android:background="#00BCD4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -37,7 +42,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#00BCD4">
+         >
 
             <ImageView
                 android:id="@+id/ivDel"

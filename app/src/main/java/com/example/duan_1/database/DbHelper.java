@@ -25,7 +25,8 @@ public class DbHelper extends SQLiteOpenHelper {
         String q_product =  "CREATE TABLE PRODUCT(masp INTEGER PRIMARY KEY AUTOINCREMENT, tenproduct TEXT,maloai INTEGER REFERENCES LOAISP(maloai),price INTEGER,soluong INTEGER,image TEXT)";
         sqLiteDatabase.execSQL(q_product);
 
-        String d_user="INSERT INTO USER VALUES(1,'admin','123','Tong Quang Duong','0981697058','Ha Noi','admin'),(2,'quangdai','123','Tong Quang Dai','0358625456','HCM','user')";
+        String d_user="INSERT INTO USER VALUES(1,'admin','123','Tong Quang Duong','0981697058','Ha Noi','admin'),(2,'quangdai','123','Tong Quang Dai','0358625456','HCM','user')," +
+                "(3,'quangkhanh','123','Tong Quang Khanh','0358888888','Nha Trang','user'),(4,'quangbach','123','Tong Quang Hoang Bach','0356666666','Đà Nẵng','user')";
         sqLiteDatabase.execSQL(d_user);
 
         String d_loai="INSERT INTO LOAISP VALUES(1,'Đồ ăn'),(2,'Đồ uống')";
@@ -37,9 +38,9 @@ public class DbHelper extends SQLiteOpenHelper {
                 "(3, 'Cam ép', 2, 500, 30, NULL),\n" +
                 "(4, 'Trà đào', 2, 600, 40, '')";
         sqLiteDatabase.execSQL(d_product);
-        String insert_donhang = "insert into DONHANG values(1,'huy', 12312, 'huycodon@gmail.com', 'ha noi','1/12/2023')";
+        String insert_donhang = "insert into DONHANG values(1,'khanh', 12312, 'khanh@gmail.com', 'ha noi','1/12/2023')";
         sqLiteDatabase.execSQL(insert_donhang);
-        String d_chitietdonhang ="INSERT INTO CHITIETDONHANG VALUES(1,1,2400,2,0,'2/12/2023')";
+        String d_chitietdonhang ="INSERT INTO CHITIETDONHANG VALUES(1,1,2400,2,0,'02/12/2023')";
         sqLiteDatabase.execSQL(d_chitietdonhang);
     }
 

@@ -5,43 +5,46 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="10dp"
     android:layout_margin="10dp">
+
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="380dp"
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
+        <ImageView
+            android:src="@drawable/user01"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"></ImageView>
 
         <LinearLayout
-            android:background="#00BCD4"
-            android:padding="10dp"
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_width="390dp"
-            android:layout_height="match_parent">
+            android:padding="10dp">
+
             <TextView
                 android:id="@+id/txtMaKH"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mã">
-            </TextView>
+                android:text="Mã"></TextView>
 
             <TextView
                 android:id="@+id/txtTenKH"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tên:">
-            </TextView>
+                android:text="Tên:"></TextView>
+
             <TextView
                 android:id="@+id/txtSDTKH"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="SDT">
-            </TextView>
+                android:text="SDT"></TextView>
+
             <TextView
                 android:id="@+id/txtDiaChiKH"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Địa chỉ">
-            </TextView>
+                android:text="Địa chỉ"></TextView>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

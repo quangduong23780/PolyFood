@@ -3,7 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#FFF3DE">
+    <TextView
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="#E91E1E"
+        android:gravity="center"
+        android:text="DOANH THU"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+    </TextView>
 
     <TextView
         android:textSize="20dp"

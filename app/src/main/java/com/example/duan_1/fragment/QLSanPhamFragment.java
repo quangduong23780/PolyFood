@@ -91,9 +91,9 @@ public class QLSanPhamFragment extends Fragment {
                 boolean check = sanPhamDao.themSanPham(tensp, loai, giasp, image);
                 if (check) {
                     Toast.makeText(getContext(), "Thêm sản phẩm thành công", Toast.LENGTH_LONG).show();
-                    list.clear(); // Xóa danh sách sản phẩm hiện tại
-                    list.addAll(sanPhamDao.getDSProduct()); // Cập nhật danh sách sản phẩm từ cơ sở dữ liệu
-                    adapter.notifyDataSetChanged(); // Thông báo cập nhật giao diện
+                    list.clear();
+                    list.addAll(sanPhamDao.getDSProduct());
+                    adapter.notifyDataSetChanged();
                 } else {
                     Toast.makeText(getContext(), "Thêm sản phẩm thất bại", Toast.LENGTH_LONG).show();
                 }

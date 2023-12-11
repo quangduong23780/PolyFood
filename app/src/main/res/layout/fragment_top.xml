@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#FFF3DE">
 
     <TextView
         android:textColor="#E91E1E"
@@ -10,7 +11,7 @@
         android:layout_height="43dp"
         android:gravity="center"
         android:text="TOP 10 SẢN PHẨM BÁN CHẠY NHẤT"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:textStyle="bold"></TextView>
 
     <androidx.recyclerview.widget.RecyclerView

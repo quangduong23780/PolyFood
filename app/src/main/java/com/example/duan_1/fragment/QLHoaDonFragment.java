@@ -98,7 +98,8 @@ public class QLHoaDonFragment extends Fragment {
         btnGiaohang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                list.get(a).setTrangthai(1);
+                hoaDon.setTrangthai(1);
+                hoaDonDao.updateHoaDon(hoaDon.getId(), 1);
                 dialog.dismiss();
                 adapter.notifyDataSetChanged();
             }
